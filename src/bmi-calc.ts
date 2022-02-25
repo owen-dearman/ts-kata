@@ -47,7 +47,9 @@ function bmi(weight: number, height: number): string {
       bmiCat = "obese";
       break;
   }
-  return `Your BMI is ${bmiNumber.toFixed(2,)} and this is the category: ${bmiCat}.`;
+  return `Your BMI is ${bmiNumber.toFixed(
+    2,
+  )} and this is the category: ${bmiCat}.`;
 }
 
 export default bmi;
