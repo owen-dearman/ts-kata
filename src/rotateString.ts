@@ -39,33 +39,55 @@ function RotateString
 return ROTATED-STRINGS
 */
 
-function rotateString(toBeRotated:[number, string][]): string{
-    let rotatedArray:string[] = toBeRotated.map(rotateSingleString)
-    let rotatedStrings: string = rotatedArray.join(" ")
-    return rotatedStrings
+function rotateString(toBeRotated: [number, string][]): string {
+  let rotatedArray: string[] = toBeRotated.map(rotateSingleString);
+  let rotatedStrings: string = rotatedArray.join(" ");
+  return rotatedStrings;
 }
 
 function rotateSingleString(array: [number, string]): string {
-    const operation:number = array[0];
-    const originalStringAsArray:string[] = array[1].split("");
-    if (operation >= 0){
-        const movedLetters:string[] = originalStringAsArray.splice(0,operation);
-        const currentRotation:string[] = originalStringAsArray.concat(movedLetters);
-        const currentRotatedString:string = currentRotation.join("");
-        return currentRotatedString;
-    }else{
-        const movedLetters:string[] = originalStringAsArray.splice(operation);
-        const currentRotation:string[] = movedLetters.concat(originalStringAsArray);
-        const currentRotatedString:string = currentRotation.join("");
-        return currentRotatedString;
-    }
+  const operation: number = array[0];
+  const originalStringAsArray: string[] = array[1].split("");
+  if (operation >= 0) {
+    const movedLetters: string[] = originalStringAsArray.splice(0, operation);
+    const currentRotation: string[] =
+      originalStringAsArray.concat(movedLetters);
+    const currentRotatedString: string = currentRotation.join("");
+    return currentRotatedString;
+  } else {
+    const movedLetters: string[] = originalStringAsArray.splice(operation);
+    const currentRotation: string[] = movedLetters.concat(
+      originalStringAsArray,
+    );
+    const currentRotatedString: string = currentRotation.join("");
+    return currentRotatedString;
+  }
 }
 
-console.log(rotateString([[1,"abc"]]), " ---> bca" )
-console.log(rotateString([[-1,"abc"]]), " ---> cab")
-console.log(rotateString([[0,"abc"]]), " ---> abc")
-console.log(rotateString([[3,"Nobeen"]]), " ---> eenNob")
-console.log(rotateString([[1,"cat"], [-1, "cat"]]), " ---> atc tca")
-console.log(rotateString([[2,"1234"], [3, "banana"]]), " ---> 3412 anaban")
-console.log(rotateString([[4, "a_b_c_d_e"], [-2, "elephant"], [1, "lego"]]), " ---> c_d_ea_b_  ntelepha egol")
-console.log(rotateString([[1, "   "]]), "   ")
+console.log(rotateString([[1, "abc"]]), " ---> bca");
+console.log(rotateString([[-1, "abc"]]), " ---> cab");
+console.log(rotateString([[0, "abc"]]), " ---> abc");
+console.log(rotateString([[3, "Nobeen"]]), " ---> eenNob");
+console.log(
+  rotateString([
+    [1, "cat"],
+    [-1, "cat"],
+  ]),
+  " ---> atc tca",
+);
+console.log(
+  rotateString([
+    [2, "1234"],
+    [3, "banana"],
+  ]),
+  " ---> 3412 anaban",
+);
+console.log(
+  rotateString([
+    [4, "a_b_c_d_e"],
+    [-2, "elephant"],
+    [1, "lego"],
+  ]),
+  " ---> c_d_ea_b_  ntelepha egol",
+);
+console.log(rotateString([[1, "   "]]), "   ");
